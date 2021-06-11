@@ -1,0 +1,27 @@
+.array-container {
+  position: absolute;
+  left: 5%;
+}
+
+
+.button-custom{
+    background: #282c34;
+    color: white;
+    border: none;
+    width: 200px;
+    height: 53px;
+    cursor: pointer;
+}
+
+.header-box{
+  background-color: #282c34;
+  height:40pt;
+  margin-bottom: 10px;
+}
+
+
+.array-bar {
+  width: 2px;
+  display: inline-block;
+  margin: 0 1px;
+}
