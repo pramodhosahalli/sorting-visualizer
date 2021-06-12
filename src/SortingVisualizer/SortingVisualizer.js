@@ -2,11 +2,13 @@ import React from 'react';
 import './SortingVisualizer.css';
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 170;
+const BAR_WIDTH = 5;
+
+const NUMBER_OF_ARRAY_BARS = window.innerHeight <= 640 ? 45 : 170;
+
+const MAX_HEIGHT = window.innerHeight <= 640 ? 560 : 700;
 
 let ANIMATION_SPEED_MS = 1;
-
-const BAR_WIDTH = 5;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'aqua';
@@ -38,7 +40,7 @@ class SortingVisualizer extends React.Component {
         }
         const array = [];
         for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
-            array.push(randomIntFromInterval(5, 700));
+            array.push(randomIntFromInterval(5, MAX_HEIGHT));
         }
         this.setState({ array });
     }
@@ -349,7 +351,7 @@ class SortingVisualizer extends React.Component {
         return (
             <div className="directive-container">
                 <div className="header-box">
-                    <label> Animation Speed &nbsp; <input type="range" min="1" max="5" id="animation_speed" onChange={() => this.changeAnimationSpeed()} /> </label>
+                    <label> &nbsp; &nbsp;Animation Speed &nbsp; <input type="range" min="1" max="5" id="animation_speed" onChange={() => this.changeAnimationSpeed()} /> </label>
                     <button className="button-custom" id="genNewArray" onClick={() => this.resetArray()}>Generate Array</button>
                     <button className="button-custom" id="quickSort" onClick={() => this.qSort()}>Quick Sort</button>
                     <button className="button-custom" id="mergeSort" onClick={() => this.mergeSort()}>Merge Sort</button>
