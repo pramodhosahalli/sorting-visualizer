@@ -25,7 +25,7 @@ class SortingVisualizer extends React.Component {
         this.state = {
             array: [],
             isRunning: false,
-            isDarkMode: false
+            isDarkMode: true
         };
     }
 
