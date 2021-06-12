@@ -39,6 +39,7 @@ class SortingVisualizer extends React.Component {
             return;
         }
         const array = [];
+
         for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
             array.push(randomIntFromInterval(5, MAX_HEIGHT));
         }
@@ -49,6 +50,12 @@ class SortingVisualizer extends React.Component {
 
     // Merge Sort Algorithm Starts From Here
     mergeSort() {
+
+        if (this.isSorted()) {
+            logAlert();
+            return;
+        }
+
         const result = this.activate("mergeSort");
         if (!result) return;
 
@@ -112,6 +119,12 @@ class SortingVisualizer extends React.Component {
 
     // Heap Sort Algorithm Starts From Here
     heapSort() {
+
+        if (this.isSorted()) {
+            logAlert();
+            return;
+        }
+
         const result = this.activate("heapSort");
         if (!result) return;
 
@@ -175,6 +188,12 @@ class SortingVisualizer extends React.Component {
 
 
     bubbleSort() {
+
+        if (this.isSorted()) {
+            logAlert();
+            return;
+        }
+
         const result = this.activate("bubbleSort");
         if (!result) return;
 
@@ -245,6 +264,12 @@ class SortingVisualizer extends React.Component {
     }
 
     qSort() {
+
+        if (this.isSorted()) {
+            logAlert();
+            return;
+        }
+
         const result = this.activate("quickSort");
         if (!result) return;
 
@@ -258,6 +283,12 @@ class SortingVisualizer extends React.Component {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     selectionSort() {
+
+        if (this.isSorted()) {
+            logAlert();
+            return;
+        }
+
         const result = this.activate("selectionSort");
         if (!result) return;
 
@@ -344,6 +375,14 @@ class SortingVisualizer extends React.Component {
         ANIMATION_SPEED_MS = 6 - document.getElementById("animation_speed").value;
     }
 
+    isSorted() {
+        for (let i = 0; i < this.state.array.length - 1; i++) {
+            if (this.state.array[i] > this.state.array[i + 1])
+                return false;
+        }
+        return true;
+    }
+
     render() {
 
         const { array } = this.state;
@@ -383,6 +422,10 @@ class SortingVisualizer extends React.Component {
 function randomIntFromInterval(min, max) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function logAlert() {
+    alert("Array is Already Sorted!.. Generate New Array");
 }
 
 export default SortingVisualizer;
