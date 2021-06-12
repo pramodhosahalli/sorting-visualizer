@@ -4,9 +4,9 @@ import './SortingVisualizer.css';
 // Change this value for the number of bars (value) in the array.
 const BAR_WIDTH = 5;
 
-const NUMBER_OF_ARRAY_BARS = window.innerHeight <= 640 ? 45 : 170;
+const NUMBER_OF_ARRAY_BARS = window.innerWidth / (BAR_WIDTH + 3);
 
-const MAX_HEIGHT = window.innerHeight <= 640 ? 560 : 700;
+const MAX_HEIGHT = window.innerHeight - 75;
 
 let ANIMATION_SPEED_MS = 1;
 
